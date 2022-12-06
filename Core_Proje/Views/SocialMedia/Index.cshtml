@@ -12,11 +12,10 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th style="width: 5%">#</th>
+                                <th>#</th>
                                 <th style="width: 70%">Başlık</th>
-                                <th style="width: 17%">Tarih</th>
-                                <th style="width: 8%">Sil</th>
-                                <th style="width: 10%">Güncelle</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,15 +24,14 @@
                                 <tr>
                                     <td>@item.SosialMediaID</td>
                                     <td>@item.Name</td>
-                                    <td>@item.Icon</td>
-                                    <td><a href="/Experience/DeleteExperience/@item.SosialMediaID" class="btn btn-outline-danger">Sil</a></td>
-                                    <td><a href="/Experience/EditExperience/@item.SosialMediaID" class="btn btn-outline-success">Güncelle</a></td>
+                                    <td><a href="/SocialMedia/DeleteSocialMedia/@item.SosialMediaID" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/SocialMedia/EditSocialMedia/@item.SosialMediaID" class="btn btn-outline-success">Güncelle</a></td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                     <br />
-                    <a href="/Experience/AddExperience/" class="btn btn-outline-info float-right">Yeni Deneyim Ekle</a>
+                    <a href="/SocialMedia/AddSocialMedia/" class="btn btn-outline-info float-right">Yeni Sosyal Medya Ekle</a>
                 </div>
             </div>
         </div>
