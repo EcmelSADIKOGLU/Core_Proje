@@ -1,0 +1,43 @@
+﻿@model List<Announcement>
+
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+    <p class="mb-0 font-weight-normal float-left dropdown-header">Bildirimler</p>
+    @{
+        string typeClass;
+        string divClass;
+    }
+    @foreach (var item in Model)
+    {
+        if (item.Type == "Eğitim")
+        {
+            divClass = "preview-icon bg-dark";
+        }
+        else if (item.Type == "Güncelleme")
+        {
+            divClass = "preview-icon bg-success";
+        }
+        else if (item.Type == "Yeni Blog")
+        {
+            divClass = "preview-icon bg-warning";
+        }
+        else if (item.Type == "Yeni Video")
+        {
+            divClass = "preview-icon bg-danger";
+        }
+        else
+        {
+            divClass = "preview-icon bg-info";
+        }
+        <a class="dropdown-item preview-item" href="/Writer/Default/AnnouncementDetails/@item.AnnouncementID">
+            <div class="preview-thumbnail">
+                <div class="@divClass">
+                    <i class="ti-info-alt mx-0"></i>
+                </div>
+            </div>
+            <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal">@item.Title</h6>
+                <p class="font-weight-light small-text mb-0 text-muted">@item.Date.ToString("dd-MMM-yyyy")</p>
+            </div>
+        </a>
+    }
+</div>

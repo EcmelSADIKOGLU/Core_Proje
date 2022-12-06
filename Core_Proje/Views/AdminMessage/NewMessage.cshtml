@@ -1,0 +1,41 @@
+﻿@model WriterMessage
+@{
+    ViewData["Title"] = "NewMessage";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="row" style="width:80%; margin-left:10%">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body ">
+
+                <form class="forms-sample" method="post">
+                    <br />
+                    <div class="form-group">
+                        <label>Alıcı (Mail)</label>
+                        @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Konu</label>
+                        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Mesaj</label>
+                        <textarea asp-for="MessageContent" class="form-control" rows="4"></textarea>
+
+                    </div>
+                    <br />
+                    <button class="btn btn-outline-success float-right ml-3">Gönder</button>
+                    <a href="/AdminMessage/Inbox/" class="btn btn-outline-danger float-right"> İptal</a>
+                </form>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

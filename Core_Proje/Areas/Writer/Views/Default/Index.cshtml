@@ -1,0 +1,61 @@
+﻿@model List<Announcement>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Duyurular</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th>Kategori</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            string typeClass;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            if (item.Type == "Eğitim")
+                            {
+                                typeClass = "badge badge-danger";
+                            }
+                            else if (item.Type == "Güncelleme")
+                            {
+                                typeClass = "badge badge-success";    
+                            }
+                            else if (item.Type == "Yeni Blog")
+                            {
+                                typeClass = "badge badge-warning";
+                            }
+                            else if (item.Type == "Yeni Video")
+                            {
+                                typeClass = "badge badge-primary";
+                            }
+                            else
+                            {
+                                typeClass = "badge badge-dark";
+                            }
+                            <tr>
+                                <th>@item.AnnouncementID</th>
+                                <td>@item.Title</td>
+                                <td>@item.Date.ToString("dd-MMM-yyyy")</td>
+                                <td><label class="@typeClass">@item.Type</label></td>
+                                <td><a href="/Writer/Default/AnnouncementDetails/@item.AnnouncementID" class="btn btn-outline-primary">Detaylar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

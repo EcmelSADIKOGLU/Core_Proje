@@ -1,0 +1,40 @@
+﻿@model WriterMessage
+@{
+    ViewData["Title"] = "MessageDetailsForSendbox";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Tarih</label>
+                        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Alıcı</label>
+                        @Html.TextBoxFor(x => x.ReceiverName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Alıcı (Mail)</label>
+                        @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Konu</label>
+                        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mesaj</label>
+                        @Html.TextAreaFor(x => x.MessageContent, new { @class = "form-control" })
+                    </div>
+
+                    <a href="/AdminMessage/Sendbox/" class="btn btn-outline-info float-right ml-3">Kapat</a>
+                    <a href="/AdminMessage/DeleteMessage/@Model.WriterMessageID" class="btn btn-outline-danger float-right"> Sil</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

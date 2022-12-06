@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("Index", "About", FormMethod.Post))
+                {
+
+                    <form class="forms-sample">
+
+                         @Html.HiddenFor(x=>x.AboutID)
+
+                        <div class="form-group">
+                            <label>Başlık</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Yaş</label>
+                            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Mail</label>
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Adres</label>
+                            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Görsel URL</label>
+                            @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            @Html.TextAreaFor(x => x.Description, 6, 3, new { @class = "form-control" })
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success float-right">Kaydet</button>
+                    </form>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

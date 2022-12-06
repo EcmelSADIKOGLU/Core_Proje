@@ -1,0 +1,25 @@
+﻿@model Announcement
+@{
+    ViewData["Title"] = "AnnouncementDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Duyuru detayları</h4>
+            <br />
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">Başlık</label>
+                    <input type="text" class="form-control" id="exampleInputName1" asp-for="Title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">Detaylar</label>
+                    <textarea class="form-control" id="exampleTextarea1" rows="4" asp-for="Content"></textarea>
+                </div>
+            </form>
+            <br />
+        </div>
+    </div>
+</div>

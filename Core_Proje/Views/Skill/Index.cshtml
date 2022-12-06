@@ -1,0 +1,55 @@
+﻿@model List<EntityLayer.Concrete.Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="10%" scope="col" class="sort" data-sort="name">#</th>
+                                <th width="20%" scope="col" class="sort" data-sort="budget">Başlık</th>
+                                <th width="30%" scope="col" class="sort" data-sort="status">Oran</th>
+                                <th width="20%" scope="col">Sil</th>
+                                <th width="20%" scope="col" class="sort" data-sort="completion">Düzenle</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>
+                                        @item.SkillID
+                                    </th>
+                                    <td class="budget">
+                                        @item.Title
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="completion mr-2">@item.Value%</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Skill/EditSkill/@item.SkillID" class="btn btn-outline-success">Güncelle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <a href="/Skill/AddSkill/" class="btn btn-outline-info float-right">Yeni Yetenek Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

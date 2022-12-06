@@ -1,0 +1,44 @@
+﻿@model Core_Proje.Areas.Writer.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Sayfası</h4>
+            <form method="post" class="forms-sample" enctype="multipart/form-data"> @*enctype dosya alabilmek için böyle tanımlandı*@
+                <div class="form-group">
+                    <label for="exampleInputName1">Adınız</label>
+                    <input asp-for="Name"  type="text" class="form-control" placeholder="Ad">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Soyadınız</label>
+                    <input asp-for="Surname"  type="text" class="form-control" placeholder="Soyad">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">E-Mail</label>
+                    <input asp-for="Email" disabled type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifreniz</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Şifre">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifreniz(Tekrar)</label>
+                    <input asp-for="PasswordConfirm" type="password" class="form-control"  placeholder="Şifre(Tekrar)">
+                </div>
+                <div class="form-group">
+                    <label>Resim Seç</label>
+                    <input type="file" asp-for="Image" class="form-control">
+                    
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-2">Verileri Güncelle</button>
+                <a href="#" class="btn btn-light">İptal</a>
+            </form>
+        </div>
+    </div>
+</div>
+
