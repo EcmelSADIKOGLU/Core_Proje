@@ -13,6 +13,12 @@ namespace DataAccsessLayer.EntitiyFramework
     public class EFWriterMessageDAL : GenericRepository<WriterMessage>, IWriterMessageDAL
     {
         Context context = new Context();
+
+        public List<WriterMessage> GetMessageListWithSender(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
         public String GetNameByMail(string mail)
         {
            var user = context.Users.Where(x => x.Email == mail).FirstOrDefault();

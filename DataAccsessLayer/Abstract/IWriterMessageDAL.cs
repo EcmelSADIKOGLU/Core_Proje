@@ -11,5 +11,6 @@ namespace DataAccsessLayer.Abstract
     public interface IWriterMessageDAL:IGenericDAL<WriterMessage>
     {
         String GetNameByMail(string mail);
+        List<WriterMessage> GetMessageListWithSender(string mail);
     }
 }
