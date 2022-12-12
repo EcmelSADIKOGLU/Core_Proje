@@ -43,7 +43,7 @@ namespace Core_Proje_Api.Controllers
             return Created("", category);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
 
         public IActionResult DeleteCategory(int id)
         {
@@ -61,7 +61,6 @@ namespace Core_Proje_Api.Controllers
         }
 
         [HttpPut]
-
         public IActionResult UpdateCategory(Category p)
         {
             var category = c.Categories.Find(p.CategoryID);
