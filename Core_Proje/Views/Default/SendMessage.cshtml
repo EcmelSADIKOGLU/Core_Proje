@@ -3,18 +3,41 @@
     <div class="bg-light my-2 p-3 pt-2">
         <form action="/Default/SendMessage/" method="post">
             <div class="form-group my-2">
-                <label for="name" class="form-label fw-bolder">Adınız</label>
-                <input class="form-control" type="text" id="Name" name="Name" required>
+                <label class="form-label fw-bolder">Adınız</label>
+                <input class="form-control" type="text" id="txtName"  required>
             </div>
             <div class="form-group my-2">
-                <label for="email" class="form-label fw-bolder">Mail Adresiniz</label>
-                <input class="form-control" type="email" id="Mail" name="Mail" required>
+                <label class="form-label fw-bolder">Mail Adresiniz</label>
+                <input class="form-control" type="email" id="txtMail"  required>
             </div>
             <div class="form-group my-2">
-                <label for="message" class="form-label fw-bolder">Mesajınız</label>
-                <textarea class="form-control" style="resize: none;" id="Content" name="Content" rows="4" required></textarea>
+                <label class="form-label fw-bolder">Mesajınız</label>
+                <textarea class="form-control" style="resize: none;" id="txtContent"  rows="4" required></textarea>
             </div>
-            <button class="btn btn-primary mt-2">Gönder</button>
+            <button class="btn btn-primary mt-2" id="btnSendMessage">Gönder</button>
         </form>
     </div>
 </div>
+@section scripts
+    {
+    <script>
+        $("#btnSendMessage").click(function () {
+            let values = {
+                Name: $("#txtName").val(),
+                Mail: $("#txtMail").val(),
+                Content: $("#txtContent").val()
+            };
+
+            $.ajax({
+                type: "Post",
+                url: "/Default/SendMessage/",
+                data: values,
+                success: function (funk1) {
+                    let result = jQuery.parseJSON(funk1);
+                    alert("Başarılı bir şekilde eklendi");
+                }
+            });
+        });
+    </script>
+    
+}

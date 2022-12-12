@@ -3,6 +3,7 @@ using DataAccsessLayer.EntitiyFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 
 namespace Core_Proje.Controllers
@@ -29,13 +30,14 @@ namespace Core_Proje.Controllers
             return PartialView();
         }
         [HttpPost]
-        public PartialViewResult SendMessage(Message message)
+        public IActionResult SendMessage(Message message)
         {
             MessageManager messageManager = new MessageManager(new EFMessageDAL());
             message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             message.Status = true;
             messageManager.TInsert(message);
-            return PartialView();
+            var json = JsonConvert.SerializeObject(message);
+            return Json(json);
         }
     }
 }

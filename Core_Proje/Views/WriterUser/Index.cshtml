@@ -1,0 +1,36 @@
+﻿@model List<WriterUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button class="btn btn-outline-info" type="button" id="getWriterList">Yazarları Listele</button>
+    </div>
+</div>
+
+<h4 class="text-danger">Yazar Listesi</h4>
+<div class="p-2" id="writerList">
+    Buraya veriler gelecek
+</div>
+
+@section scripts
+{
+    <script>
+        $("#getWriterList").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/WriterUser/WriterList/",
+
+                success: function (funk) {
+                    let users = jQuery.parseJSON(funk);
+                    console.log(users);
+                }
+            });
+        });
+    </script>
+}
